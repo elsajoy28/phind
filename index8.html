@@ -1,123 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosa - Luxury Makeup and Skincare</title>
-    <style>
-        /* CSS Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f0e8; /* Peach */
-        }
-        .navbar {
-            background-color: #ff7f50; /* Coral */
-            overflow: hidden;
-            padding: 10px;
-        }
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .navbar a:hover {
-            background-color: #dd691c; /* Darker Coral */
-        }
-        .hero {
-            background-image: url('hero-background.jpg');
-            height: 500px;
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            padding: 100px 0;
-        }
-        .hero h1 {
-            color: white;
-            font-size: 48px;
-        }
-        .product-section {
-            padding: 50px;
-            background-color: #f8f0e8; /* Peach */
-        }
-        .product-section h2 {
-            color: #ff7f50; /* Coral */
-            font-size: 36px;
-        }
-        .product-display {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .product-card {
-            width: 30%;
-            margin: 10px;
-            border: 1px solid #dd691c; /* Darker Coral */
-            padding: 20px;
-            text-align: center;
-        }
-        .product-card img {
-            width: 100%;
-            height: auto;
-        }
-        .product-card h3 {
-            color: #ff7f50; /* Coral */
-            font-size: 24px;
-        }
-        .product-card p {
-            color: #333;
-        }
-        .footer {
-            background-color: #ff7f50; /* Coral */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosa - Luxury Makeup & Skincare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-Rj0UO+xT0p3z5IVslJ0V0GZeXeDb5wEN1ZB+gqpbA25epNWLBmqM3Y6FvBCHjPXT" crossorigin="anonymous">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f0e6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    a {
+      text-decoration: none;
+      color: #c0392b;
+    }
+    a:hover {
+      color: #8b251e;
+    }
+
+    /* Header */
+    header {
+      background-color: #fff;
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2em;
+      color: #c0392b;
+      font-weight: lighter;
+    }
+    .logo img {
+      width: 50px;
+      margin-right: 10px;
+    }
+    nav {
+      display: flex;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav li {
+      margin-right: 20px;
+    }
+
+    /* Banner */
+    .banner {
+      background-image: url("images/banner.jpg"); /* Replace with your banner image */
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      position: relative;
+    }
+    .banner-text {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      text-align: center;
+    }
+    .banner-text h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    /* Products */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    .product {
+      width: calc(33% - 20px);
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .product h3 {
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+    .product p {
+      font-size: 0.9em;
+      color: #666;
+      line-height: 1.5;
+    }
+    .product-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #c0392b;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#makeup">Makeup</a>
-        <a href="#skincare">Skincare</a>
-        <a href="#contact">Contact</a>
+  <header class="container">
+    <div class="logo">
+      <img src="images/logo.png" alt="Rosa Logo"> Rosa
     </div>
+    <nav>
+      <ul>
+        <li><a href="#">Makeup</a></li>
+        <li><a href="#">Skincare</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Welcome to Rosa</h1>
+  <section class="banner container">
+    <div class="banner-text">
+      <h2>Luxury redefined. Unveiling flawless beauty.</h2>
     </div>
+  </section>
 
-    <!-- Product Section -->
-    <div class="product-section">
-        <h2>Our Products</h2>
-        <div class="product-display">
-            <!-- Product Card Example -->
-            <div class="product-card">
-                <img src="product-image.jpg" alt="Product Image">
-                <h3>Product Name</h3>
-                <p>Product Description</p>
-            </div>
-            <!-- Add more product cards as needed -->
-        </div>
-    </div>
+  <section class="products container">
+    <article class="product">
+      <img src="images/product1.jpg" alt="Product Image"> <h3>Radiant Foundation</h3>
+      <p>Lightweight formula for a flawless, natural finish. Buildable coverage that hydrates and evens skin tone.</p>
+      <div class="product-details">
+        <span>Shop Now</span>
+        <i class="fas fa-dollar-sign"></i>
+      </div>
+    </article>
+    <!-- Add more product articles as needed -->
+  </section>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2024 Rosa. All rights reserved.</p>
-    </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const productCards = document.querySelectorAll('.product');
 
-    <!-- JavaScript -->
-    <script>
-        // JavaScript code goes here
-    </script>
+      productCards.forEach(card => {
+        const productDetails = card.querySelector('.product-details');
+
+        card.addEventListener('mouseover', () => {
+          productDetails.style.opacity = 1;
+        });
+
+        card.addEventListener('mouseout', () => {
+          productDetails.style.opacity = 0;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
